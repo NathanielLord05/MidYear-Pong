@@ -35,15 +35,17 @@ class Paddle(pygame.sprite.Sprite):
 
         running = True
         while running:
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_w]:
-                paddle1.moveUp(3)
-            if keys[pygame.K_s]:
-                paddle1.moveDown(3)
-            if keys[pygame.K_UP]:
-                paddle2.moveUp(3)
-            if keys[pygame.K_DOWN]:
-                paddle2.moveDown(3)  
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_w:
+                        paddle1.moveUp(3)
+                    if event.key == pygame.K_s:
+                        paddle1.moveDown(3)
+                    if event.key == pygame.K_UP:
+                        paddle2.moveUp(3)
+                    if event.key == pygame.K_DOWN:
+                        paddle1.moveDown(3)
+
 
 
     
