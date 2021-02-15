@@ -14,12 +14,12 @@ class Paddle(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
         paddle1 = Paddle(WHITE, 10, 100)
-        paddleA.rect.x = 20
-        paddleA.rect.y = 200
+        l_paddle.rect.x = 20
+        l_paddle.rect.y = 200
         
         paddle2 = Paddle(WHITE, 10, 100)
-        paddleB.rect.x = 670
-        paddleB.rect.y = 200
+        r_paddle.rect.x = 670
+        r_paddle.rect.y = 200
 
     def UpOffScreen(self, pixels):
         self.rect.y -= pixels
@@ -38,13 +38,13 @@ class Paddle(pygame.sprite.Sprite):
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_w:
-                        paddle1.moveUp(3)
+                        l_paddle.moveUp(3)
                     if event.key == pygame.K_s:
-                        paddle1.moveDown(3)
+                        l_paddle1.moveDown(3)
                     if event.key == pygame.K_UP:
-                        paddle2.moveUp(3)
+                        r_paddle2.moveUp(3)
                     if event.key == pygame.K_DOWN:
-                        paddle1.moveDown(3)
+                        r_paddle1.moveDown(3)
 
 
 

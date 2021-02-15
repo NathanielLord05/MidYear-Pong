@@ -5,7 +5,7 @@ from ball import Ball
 from Paddles import Paddle
 
 # creating main screen
-screen = ---.Screen()
+screen = screen.Screen()
 screen.title = ("Play the Pong Game!")
 screen.setup(width=900, height = 500)
 screen.bgcolor = ("black")
@@ -13,19 +13,35 @@ screen.bgcolor = ("black")
 # right paddle
 r_paddle = ()
 r_paddle.speed(0)
-r_paddle.shape("triangle")
+r_paddle.shape("rectangle")
 r_paddle.color("white")
 r_paddle.shapesize(stretch_wid=5, stretch_len=2)
+
+# left paddle 
+l_paddle = screen2.Screen()
+l_paddle.shape("rectangle")
+l_paddle.color("black")
+l_paddle.speed(0)
+l_paddle.shapesize(stretch_len = 3, stretch_wid = 5)
+
+
 
 spriteLog = pygame.sprite.Group()
 
 spriteLog.add(ball)
-spriteLog.add(paddleA)
-spriteLog.add(paddleB)
+spriteLog.add(l_paddle)
+spriteLog.add(r_paddle)
 
 time = pygame.time.Clock()
 player1Score = 0
 player2Score = 0
+
+fontSize = pygame.font.Font(None, 69)
+player1text = font.render(str(player1Score)), 1, 255, 255, 255)
+screen.blit(text, 250, 10)
+player2text = font.render(str(player2Score)), 1, 255, 255, 255)
+screen.blit(text, 420, 10)
+
 
 running  = True
 while running:
@@ -35,6 +51,8 @@ while running:
                 running = False
         elif event.type == pygame.QUIT:
             running = False
+
+
             
 
 
