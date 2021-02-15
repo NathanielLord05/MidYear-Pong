@@ -30,7 +30,11 @@ player2Score = 0
 running  = True
 while running:
     for event in pygame.event.get():
-        if event.type == pygame.KeyDOWN:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_esc:
+                running = False
+        elif event.type == pygame.QUIT:
+            running = False
             
 
 
