@@ -13,19 +13,33 @@ screen.bgcolor = ("black")
 # right paddle
 r_paddle = ()
 r_paddle.speed(0)
-r_paddle.shape("triangle")
+r_paddle.shape("rect")
 r_paddle.color("white")
 r_paddle.shapesize(stretch_wid=5, stretch_len=2)
+
+# left paddle
+l_paddle = ()
+l_paddle.speed(0)
+l_paddle.shape("rect")
+l_paddle.color("white")
+l_paddle.shapesize(stretch_wid=5, stretch_len=2)
 
 spriteLog = pygame.sprite.Group()
 
 spriteLog.add(ball)
-spriteLog.add(paddleA)
-spriteLog.add(paddleB)
+spriteLog.add(l_paddle)
+spriteLog.add(r_paddle)
 
 time = pygame.time.Clock()
 player1Score = 0
 player2Score = 0
+
+fontSize = pygame.font.Font(None, 69)
+player1text = font.render(str(player1Score)), 1, 255, 255, 255)
+screen.blit(text, 250, 10)
+player2text = font.render(str(player2Score)), 1, 255, 255, 255)
+screen.blit(text, 420, 10)
+
 
 running  = True
 while running:
@@ -35,6 +49,8 @@ while running:
                 running = False
         elif event.type == pygame.QUIT:
             running = False
+
+
             
 
 
