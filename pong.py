@@ -36,12 +36,6 @@ time = pygame.time.Clock()
 player1Score = 0
 player2Score = 0
 
-fontSize = pygame.font.Font(None, 69)
-player1text = font.render(str(player1Score)), 1, 255, 255, 255)
-screen.blit(text, 250, 10)
-player2text = font.render(str(player2Score)), 1, 255, 255, 255)
-screen.blit(text, 420, 10)
-
 
 running  = True
 while running:
@@ -51,8 +45,26 @@ while running:
                 running = False
         elif event.type == pygame.QUIT:
             running = False
-
-
             
+
+    if pygame.sprite.collide_mask(ball, l_paddle) or pygame.sprite.collide_mask(ball, r_paddle):
+        ball.bounce
+
+    fontSize = pygame.font.Font(None, 69)
+    player1text = font.render(str(player1Score)), 1, 255, 255, 255)
+    screen.blit(text, 250, 10)
+    player2text = font.render(str(player2Score)), 1, 255, 255, 255)
+    screen.blit(text, 420, 10)
+    scree.fill(BLACK)
+
+    pygame.draw.line(screen, 255, 255, 255, [349, 0], [349, 500], 5)
+
+    spriteLog.draw(screen)
+
+    pygame.display.flip()
+
+    clock.tick(60)
+
+pygame.quit()            
 
 
