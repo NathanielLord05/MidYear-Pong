@@ -2,15 +2,17 @@
 
 import pygame
 
+BLACK = (0, 0, 0)
 class Paddle(pygame.sprite.Sprite):
     def __init__(self, height, width, color):
         super().__init__()
 
-        self.paddle = pygame.pygame.Surface(width, height)
-        self.paddle.fill(0, 0, 0)
-        self.paddle.set_colorkey(0, 0, 0)
+        self.image = pygame.pygame.Surface(width, height)
+        # self.image.fill(BLACK)
+        self.image.fill(BLACK)
+        self.image.set_colorkey(BLACK)
 
-        pygame.draw.rect(self.paddle, color, ([Black, width, height])
+        pygame.draw.rect(self.image, color, ([0, 0, width, height]))
         self.rect = self.image.get_rect()
 
         paddle1 = Paddle(WHITE, 10, 100)
@@ -30,7 +32,7 @@ class Paddle(pygame.sprite.Sprite):
     def DownOffScreen(self, pixels):
         self.rect.y += pixels
 
-        if self.rect y > 400:
+        if self.rect.y > 400:
             self.rect.y = 400
 
         running = True
