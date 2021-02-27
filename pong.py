@@ -12,7 +12,7 @@ screen.bgcolor = ("black")
 
 # right paddle
 r_paddle = ()
-r_paddle.speed(0) # unneccessary?
+r_paddle.speed(0)
 r_paddle.shape("triangle")
 r_paddle.color("white")
 r_paddle.shapesize(stretch_wid=5, stretch_len=2)
@@ -46,7 +46,7 @@ while running:
     screen.blit(text, 250, 10)
     player2text = font.render(str(player2Score)), 1, 255, 255, 255)
     screen.blit(text, 420, 10)
-    scree.fill(BLACK)
+    screen.fill(BLACK)
 
     pygame.draw.line(screen, 255, 255, 255, [349, 0], [349, 500], 5)
 
