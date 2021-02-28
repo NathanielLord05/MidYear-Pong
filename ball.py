@@ -18,8 +18,11 @@ class Ball(pygame.sprite.Sprite):
 
         # create ball shape (temporarily a rectanlge)
         pygame.draw.rect(self.image, color, [0,0, width, height])
-        self.v = [random.randint(4,8), random.randint(-8,8)]
+        self.v = [random.randint(4,4), random.randint(4,4)]
         self.rect = self.image.get_rect()
+
+        # if self.v[0] > 4:
+        #     self.v[0] = 4
 
     def update(self):
         self.rect.x += self.v[0]
@@ -27,7 +30,7 @@ class Ball(pygame.sprite.Sprite):
 
     def bounce(self):
         self.v[0] = -self.v[0]
-        self.v[1] = random.randint(-8,8)
+        self.v[1] = random.randint(4,4)
 
 
 
