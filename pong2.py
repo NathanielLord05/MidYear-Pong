@@ -41,12 +41,12 @@ player2Score = 0
 
 run = True
 while run:
-    BACKGROUND_MUSIC.play()
+    
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 run = False
-                BACKGROUND_MUSIC.stop()
+                
         elif event.type == pygame.QUIT:
             run = False
     
