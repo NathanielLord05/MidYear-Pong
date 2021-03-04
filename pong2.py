@@ -46,7 +46,7 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 run = False
-                BACKGROUND_MUSIC.stop()
+                # BACKGROUND_MUSIC.stop()
         elif event.type == pygame.QUIT:
             run = False
     
@@ -59,6 +59,8 @@ while run:
         paddleB.moveUp(5)
     if keys[pygame.K_DOWN]:
         paddleB.moveDown(5)
+    if keys[pygame.K_SPACE]:
+        pass
     
     spriteLog.update()
     
