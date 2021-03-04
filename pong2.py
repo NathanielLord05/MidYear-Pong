@@ -15,7 +15,7 @@ WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pong by Stressed High School Students")
 
-BACKGROUND_MUSIC = pygame.mixer.Sound('rainbowconnection.mp3')
+
 
 paddleA = Paddle(WHITE, 10, 100)
 paddleA.rect.x = 20
@@ -75,6 +75,7 @@ while run:
 
     if pygame.sprite.collide_mask(ball, paddleA) or pygame.sprite.collide_mask(ball, paddleB):
         ball.bounce()
+        BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
     WIN.fill(BLACK)
     pygame.draw.line(WIN, WHITE, [349, 0], [349, 500], 5)
