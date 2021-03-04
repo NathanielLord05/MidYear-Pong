@@ -15,12 +15,12 @@ WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pong by Stressed High School Students")
 
-
+BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
 paddleA = Paddle(WHITE, 10, 100)
 paddleA.rect.x = 20
 paddleA.rect.y = 200
- 
+
 paddleB = Paddle(WHITE, 10, 100)
 paddleB.rect.x = 670
 paddleB.rect.y = 200
@@ -60,7 +60,39 @@ while run:
     if keys[pygame.K_DOWN]:
         paddleB.moveDown(5)
     if keys[pygame.K_SPACE]:
-        pass
+        BLACK = (0, 0, 0)
+        WHITE = (255, 255, 255)
+
+        # creating main screen
+        WIDTH, HEIGHT = 700, 500
+        WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+        pygame.display.set_caption("Pong by Stressed High School Students")
+
+        BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
+
+        paddleA = Paddle(WHITE, 10, 100)
+        paddleA.rect.x = 20
+        paddleA.rect.y = 200
+        
+        paddleB = Paddle(WHITE, 10, 100)
+        paddleB.rect.x = 670
+        paddleB.rect.y = 200
+
+        ball = Ball(WHITE, 15, 15)
+        ball.rect.x = 345
+        ball.rect.y = 195
+
+        spriteLog = pygame.sprite.Group()
+
+        spriteLog.add(ball)
+        spriteLog.add(paddleA)
+        spriteLog.add(paddleB)
+
+        FPS = pygame.time.Clock()
+        player1Score = 0
+        player2Score = 0
+
+        run = True
     
     spriteLog.update()
     
@@ -77,7 +109,7 @@ while run:
 
     if pygame.sprite.collide_mask(ball, paddleA) or pygame.sprite.collide_mask(ball, paddleB):
         ball.bounce()
-        BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
+        BallBounceSound.play()
 
     WIN.fill(BLACK)
     pygame.draw.line(WIN, WHITE, [349, 0], [349, 500], 5)
