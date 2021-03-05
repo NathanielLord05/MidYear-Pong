@@ -9,19 +9,22 @@ pygame.mixer.init()
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+GREEN = (0, 95, 68)
+RED = (150, 10, 60)
+BLUE = (26, 99, 219)
 
 # creating main screen
 WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Pong by Stressed High School Students")
+pygame.display.set_caption("Pong by Stressed High School Students") # change?
 
 BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
-paddleA = Paddle(WHITE, 10, 100)
+paddleA = Paddle(RED, 10, 100)
 paddleA.rect.x = 20
 paddleA.rect.y = 200
 
-paddleB = Paddle(WHITE, 10, 100)
+paddleB = Paddle(BLUE, 10, 100)
 paddleB.rect.x = 670
 paddleB.rect.y = 200
 
@@ -62,6 +65,9 @@ while run:
     if keys[pygame.K_SPACE]:
         BLACK = (0, 0, 0)
         WHITE = (255, 255, 255)
+        GREEN = (0, 95, 68)
+        RED = (150, 10, 60)
+        BLUE = (26, 99, 219)
 
         # creating main screen
         WIDTH, HEIGHT = 700, 500
@@ -70,11 +76,11 @@ while run:
 
         BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
-        paddleA = Paddle(WHITE, 10, 100)
+        paddleA = Paddle(RED, 10, 100)
         paddleA.rect.x = 20
         paddleA.rect.y = 200
         
-        paddleB = Paddle(WHITE, 10, 100)
+        paddleB = Paddle(BLUE, 10, 100)
         paddleB.rect.x = 670
         paddleB.rect.y = 200
 
@@ -111,30 +117,41 @@ while run:
         ball.bounce()
         BallBounceSound.play()
 
-    WIN.fill(BLACK)
+    WIN.fill(GREEN)
     pygame.draw.line(WIN, WHITE, [349, 0], [349, 500], 5)
     spriteLog.draw(WIN)
 
     font = pygame.font.Font(None, 74)
-    text = font.render(str(player1Score), 1, WHITE)
+    text = font.render(str(player1Score), 1, RED)
     WIN.blit(text, (250,10))
-    text = font.render(str(player2Score), 1, WHITE)
+    text = font.render(str(player2Score), 1, BLUE)
     WIN.blit(text, (420,10))
 
 
-    if player1Score >= 20:
+    if player1Score >= 5:
         spriteLog.remove(ball)
-        WIN.fill(BLACK)
-        text = font.render(str(player1Score), False, WHITE)
-        text = font.render(("Player 1 won!"), False, WHITE)
+        WIN.fill(GREEN)
+        text = font.render(str(player1Score), False, RED)
+        text = font.render(("Player 1 won!"), False, RED)
         WIN.blit(text, (180,100))
+        text = font.render(("Click space to play again"), True, WHITE)
+        WIN.blit(text, (42, 200))
+        text = font.render(("Click Escape to Quit"), True, WHITE)
+        WIN.blit(text, (90, 300))
 
-    elif player2Score >= 20:
+
+
+
+    elif player2Score >= 5:
         spriteLog.remove(ball)
-        WIN.fill(BLACK)
-        text = font.render(str(player2Score), True, WHITE)
-        text = font.render(("Player 2 won!"), True, WHITE)
+        WIN.fill(GREEN)
+        text = font.render(str(player2Score), True, BLUE)
+        text = font.render(("Player 2 won!"), True, BLUE)
         WIN.blit(text, (180,100))
+        text = font.render(("Click space to play again"), True, WHITE)
+        WIN.blit(text, (42, 200))
+        text = font.render(("Click Escape to Quit"), True, WHITE)
+        WIN.blit(text, (90, 300))
     spriteLog.update()
 
     pygame.display.flip()
