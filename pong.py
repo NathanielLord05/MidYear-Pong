@@ -16,18 +16,18 @@ BLUE = (26, 99, 219)
 # creating main screen
 WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Pong by Stressed High School Students") # change?
+pygame.display.set_caption("Pong by Stressed High School Students")
 
 BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
 FROG = pygame.image.load('frog_transparet.png')
 
 paddleA = Paddle(RED, 10, 100)
-paddleA.rect.x = 20
+paddleA.rect.x = 10
 paddleA.rect.y = 200
 
 paddleB = Paddle(BLUE, 10, 100)
-paddleB.rect.x = 670
+paddleB.rect.x = 680
 paddleB.rect.y = 200
 
 ball = Ball(WHITE, 15, 15)
@@ -81,11 +81,11 @@ while run:
         FROG = pygame.image.load('frog_transparet.png')
 
         paddleA = Paddle(RED, 10, 100)
-        paddleA.rect.x = 20
+        paddleA.rect.x = 10
         paddleA.rect.y = 200
         
         paddleB = Paddle(BLUE, 10, 100)
-        paddleB.rect.x = 670
+        paddleB.rect.x = 680
         paddleB.rect.y = 200
 
         ball = Ball(WHITE, 15, 15)
@@ -124,7 +124,6 @@ while run:
     WIN.fill(GREEN)
     pygame.draw.line(WIN, WHITE, [349, 0], [349, 500], 5)
     spriteLog.draw(WIN)
-    
 
     font = pygame.font.Font(None, 74)
     text = font.render(str(player1Score), 1, RED)
@@ -148,8 +147,6 @@ while run:
 
         if keys[pygame.K_h]:
             WIN.blit(FROG, (100, 100))
-            # pygame.quit()
-
 
     elif player2Score >= 20:
         spriteLog.remove(ball)
@@ -164,7 +161,6 @@ while run:
 
         if keys[pygame.K_h]:
             WIN.blit(FROG, (100, 100))
-            # pygame.quit()
     spriteLog.update()
 
     pygame.display.flip()

@@ -21,9 +21,6 @@ class Ball(pygame.sprite.Sprite):
         self.v = [random.randint(4,4), random.randint(4,4)]
         self.rect = self.image.get_rect()
 
-        # if self.v[0] > 4:
-        #     self.v[0] = 4
-
     def update(self):
         self.rect.x += self.v[0]
         self.rect.y += self.v[1]
