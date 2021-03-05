@@ -20,6 +20,8 @@ pygame.display.set_caption("Pong by Stressed High School Students") # change?
 
 BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
+FROG = pygame.image.load('frog_transparet.png')
+
 paddleA = Paddle(RED, 10, 100)
 paddleA.rect.x = 20
 paddleA.rect.y = 200
@@ -76,6 +78,8 @@ while run:
 
         BallBounceSound = pygame.mixer.Sound('DingSoundEffect.mp3')
 
+        FROG = pygame.image.load('frog_transparet.png')
+
         paddleA = Paddle(RED, 10, 100)
         paddleA.rect.x = 20
         paddleA.rect.y = 200
@@ -120,15 +124,18 @@ while run:
     WIN.fill(GREEN)
     pygame.draw.line(WIN, WHITE, [349, 0], [349, 500], 5)
     spriteLog.draw(WIN)
+    
 
     font = pygame.font.Font(None, 74)
     text = font.render(str(player1Score), 1, RED)
     WIN.blit(text, (250,10))
     text = font.render(str(player2Score), 1, BLUE)
     WIN.blit(text, (420,10))
+    if keys[pygame.K_h]:
+        WIN.blit(FROG, (100, 100))
 
 
-    if player1Score >= 5:
+    if player1Score >= 20:
         spriteLog.remove(ball)
         WIN.fill(GREEN)
         text = font.render(str(player1Score), False, RED)
@@ -139,10 +146,12 @@ while run:
         text = font.render(("Click Escape to Quit"), True, WHITE)
         WIN.blit(text, (90, 300))
 
+        if keys[pygame.K_h]:
+            WIN.blit(FROG, (100, 100))
+            # pygame.quit()
 
 
-
-    elif player2Score >= 5:
+    elif player2Score >= 20:
         spriteLog.remove(ball)
         WIN.fill(GREEN)
         text = font.render(str(player2Score), True, BLUE)
@@ -152,6 +161,10 @@ while run:
         WIN.blit(text, (42, 200))
         text = font.render(("Click Escape to Quit"), True, WHITE)
         WIN.blit(text, (90, 300))
+
+        if keys[pygame.K_h]:
+            WIN.blit(FROG, (100, 100))
+            # pygame.quit()
     spriteLog.update()
 
     pygame.display.flip()
